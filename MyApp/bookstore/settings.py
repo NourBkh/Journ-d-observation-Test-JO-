@@ -1,4 +1,6 @@
+<<<<<<< HEAD
 import os
+
 
 from pathlib import Path
 
@@ -20,6 +22,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -50,6 +59,10 @@ WSGI_APPLICATION = 'bookstore.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'bookstore',
+        'USER': 'postgres',
+        'PASSWORD': 'password',
+        'HOST': 'db',
         'NAME': os.environ.get('POSTGRES_DB', 'mydb'),
         'USER': os.environ.get('POSTGRES_USER', 'user'),
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'password'),
