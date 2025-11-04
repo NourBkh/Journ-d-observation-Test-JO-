@@ -36,7 +36,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build Docker image
-        run: docker build -t myapp-image MyApp/
+        run: docker build -t nour MyApp/
 
   docker-scan:
     runs-on: ubuntu-latest
