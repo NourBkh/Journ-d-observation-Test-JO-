@@ -2,9 +2,9 @@ name: Django Docker CI
 
 on:
   push:
-    branches: [main, jo-branch]
+    branches: main
   pull_request:
-    branches: [main, jo-branch]
+    branches: main
 
 jobs:
   lint-python:
