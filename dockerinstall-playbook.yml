@@ -1,0 +1,32 @@
+---
+- name: Installation automatique de Docker sur Ubuntu
+  hosts: localhost
+  become: yes
+  connection: local
+
+  tasks:
+    - name: Mettre à jour les paquets
+      apt:
+        update_cache: yes
+
+    - name: Installer les dépendances
+      apt:
+        name: [curl, ca-certificates, apt-transport-https, gnupg, lsb-release]
+        state: present
+
+    - name: Installer Docker via le script officiel
+      shell: curl -fsSL https://get.docker.com | sh
+
+    - name: Démarrer et activer Docker
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Vérifier la version Docker
+      command: docker --version
+      register: docker_version
+
+    - debug:
+        msg: "Docker installé avec succès : {{ docker_version.stdout }}"
+
