@@ -1,13 +1,11 @@
 #!/bin/bash
 
-# Variables
-GIT_REPO="git@gitlab.com:nour-benkhairia-group/Nour-Benkhairia-project.git"
-BRANCH="jo-branch"
-IMAGE_NAME="nour/jo-django-app:latest"
-LOCAL_DIR="JO"
+GIT_REPO="https://github.com/NourBkh/Journ-d-observation-Test-JO-.git"
+BRANCH="main"
+IMAGE_NAME="nourbkh/jo:latest"
+LOCAL_DIR="JO2"
 
 echo "==== Clonage du projet ===="
-# Si le dossier existe, on met à jour, sinon on clone
 if [ -d "$LOCAL_DIR" ]; then
     cd "$LOCAL_DIR" || exit
     git fetch origin
